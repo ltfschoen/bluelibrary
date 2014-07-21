@@ -6,8 +6,16 @@
 //  Copyright (c) 2014 Eli Ganem. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "Album.h"
 
-@interface Album_TableRepresentation : NSObject
+//
+//  category (decorator design pattern) that extends the album class
+//  avoids subclassing the album class to use its properties directly
+//  avoids modifying the album class code
+//
+
+@interface Album (TableRepresentation)
+
+- (NSDictionary*)tr_tableRepresentation;    // prefix method name convention
 
 @end

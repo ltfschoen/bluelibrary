@@ -10,7 +10,10 @@
 
 @implementation Album
 
-// initialiser method to create album instances
+//
+//  initialiser method to create album instances
+//
+
 - (id)initWithTitle:(NSString*)title artist:(NSString*)artist coverUrl:(NSString*)coverUrl year:(NSString*)year
 {
     self = [super init];

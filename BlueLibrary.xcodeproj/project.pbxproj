@@ -22,6 +22,7 @@
 		A3224A6A197CC01D001BDFD8 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3224A69197CC01D001BDFD8 /* Storyboard.storyboard */; };
 		A3224A77197CDD17001BDFD8 /* LibraryAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A3224A76197CDD17001BDFD8 /* LibraryAPI.m */; };
 		A3224A7A197CE144001BDFD8 /* PersistencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3224A79197CE144001BDFD8 /* PersistencyManager.m */; };
+		A3224A80197DD04E001BDFD8 /* Album+TableRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3224A7F197DD04E001BDFD8 /* Album+TableRepresentation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,8 @@
 		A3224A76197CDD17001BDFD8 /* LibraryAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryAPI.m; sourceTree = "<group>"; };
 		A3224A78197CE144001BDFD8 /* PersistencyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistencyManager.h; sourceTree = "<group>"; };
 		A3224A79197CE144001BDFD8 /* PersistencyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistencyManager.m; sourceTree = "<group>"; };
+		A3224A7E197DD04E001BDFD8 /* Album+TableRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Album+TableRepresentation.h"; sourceTree = "<group>"; };
+		A3224A7F197DD04E001BDFD8 /* Album+TableRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Album+TableRepresentation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,7 @@
 		450EECC517A9B03A00957F62 /* BlueLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				A3224A81197DD15E001BDFD8 /* Categories */,
 				A3224A74197CD84D001BDFD8 /* View */,
 				A3224A73197CD83C001BDFD8 /* Controller */,
 				A3224A72197CD82D001BDFD8 /* Model */,
@@ -123,6 +127,7 @@
 		450EECE217A9B04400957F62 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				A3224A7D197DCF31001BDFD8 /* Categories */,
 				450EECE317A9B05E00957F62 /* HTTPClient.h */,
 				450EECE417A9B05E00957F62 /* HTTPClient.m */,
 				A3224A75197CDD17001BDFD8 /* LibraryAPI.h */,
@@ -157,6 +162,22 @@
 				A3224A69197CC01D001BDFD8 /* Storyboard.storyboard */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		A3224A7D197DCF31001BDFD8 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		A3224A81197DD15E001BDFD8 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				A3224A7E197DD04E001BDFD8 /* Album+TableRepresentation.h */,
+				A3224A7F197DD04E001BDFD8 /* Album+TableRepresentation.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +251,7 @@
 				450EECD017A9B03A00957F62 /* AppDelegate.m in Sources */,
 				450EECD917A9B03A00957F62 /* ViewController.m in Sources */,
 				A3224A68197CBD19001BDFD8 /* Album.m in Sources */,
+				A3224A80197DD04E001BDFD8 /* Album+TableRepresentation.m in Sources */,
 				450EECE517A9B05E00957F62 /* HTTPClient.m in Sources */,
 				A3224A7A197CE144001BDFD8 /* PersistencyManager.m in Sources */,
 			);
