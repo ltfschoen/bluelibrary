@@ -8,8 +8,10 @@
 
 #import "PersistencyManager.h"
 
-// class extension to add private methods and variables
-// not visible to other classes
+//
+//  class extension to add logic of private methods and variables
+//  not visible to other classes
+//
 
 @implementation PersistencyManager
 {
@@ -22,7 +24,11 @@
 {
     self = [super init];
     if (self) {
+        
+        //
         // populate array with dummy list of albums
+        //
+        
         albums = [NSMutableArray arrayWithArray:
                   @[[[Album alloc] initWithTitle:@"Best of Bowie" artist:@"David Bowie" coverUrl:@"http://www.coversproject.com/static/thumbs/album/album_david%20bowie_best%20of%20bowie.png" year:@"1992"],
                     [[Album alloc] initWithTitle:@"It's My Life" artist:@"No Doubt" coverUrl:@"http://www.coversproject.com/static/thumbs/album/album_no%20doubt_its%20my%20life%20%20bathwater.png" year:@"2003"],
@@ -33,7 +39,7 @@
     return self;
 }
 
-#pragma mark - Methods to Get, Add, and Delete Albums
+#pragma mark - Methods to Create, Read, and Delete Albums (CRUD)
 
 - (NSArray*)getAlbums
 {

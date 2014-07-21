@@ -7,11 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Album.h"   // import the Data Model (MVC)
+#import "Album.h"   // import Data Model (MVC) for album access
 
 @interface PersistencyManager : NSObject
-
-// prototype methods to handle album data
 
 - (NSArray*)getAlbums;
 - (void)addAlbum:(Album*)album atIndex:(int)index;

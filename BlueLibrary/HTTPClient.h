@@ -10,6 +10,11 @@
 
 @interface HTTPClient : NSObject
 
+//
+//  logic under facade design pattern
+//  handles remote communications
+//
+
 - (id)getRequest:(NSString*)url;
 - (id)postRequest:(NSString*)url body:(NSString*)body;
 - (UIImage*)downloadImage:(NSString*)url;
