@@ -20,6 +20,7 @@
 		450EECE517A9B05E00957F62 /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 450EECE417A9B05E00957F62 /* HTTPClient.m */; };
 		A3224A68197CBD19001BDFD8 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = A3224A67197CBD19001BDFD8 /* Album.m */; };
 		A3224A6A197CC01D001BDFD8 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3224A69197CC01D001BDFD8 /* Storyboard.storyboard */; };
+		A3224A77197CDD17001BDFD8 /* LibraryAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A3224A76197CDD17001BDFD8 /* LibraryAPI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,8 @@
 		A3224A66197CBD19001BDFD8 /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
 		A3224A67197CBD19001BDFD8 /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
 		A3224A69197CC01D001BDFD8 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		A3224A75197CDD17001BDFD8 /* LibraryAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryAPI.h; sourceTree = "<group>"; };
+		A3224A76197CDD17001BDFD8 /* LibraryAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryAPI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,15 +92,13 @@
 		450EECC517A9B03A00957F62 /* BlueLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				A3224A74197CD84D001BDFD8 /* View */,
+				A3224A73197CD83C001BDFD8 /* Controller */,
+				A3224A72197CD82D001BDFD8 /* Model */,
 				450EECE217A9B04400957F62 /* API */,
-				450EECD717A9B03A00957F62 /* ViewController.h */,
-				450EECD817A9B03A00957F62 /* ViewController.m */,
 				450EECCE17A9B03A00957F62 /* AppDelegate.h */,
 				450EECCF17A9B03A00957F62 /* AppDelegate.m */,
 				450EECC617A9B03A00957F62 /* Supporting Files */,
-				A3224A66197CBD19001BDFD8 /* Album.h */,
-				A3224A67197CBD19001BDFD8 /* Album.m */,
-				A3224A69197CC01D001BDFD8 /* Storyboard.storyboard */,
 			);
 			path = BlueLibrary;
 			sourceTree = "<group>";
@@ -121,8 +122,36 @@
 			children = (
 				450EECE317A9B05E00957F62 /* HTTPClient.h */,
 				450EECE417A9B05E00957F62 /* HTTPClient.m */,
+				A3224A75197CDD17001BDFD8 /* LibraryAPI.h */,
+				A3224A76197CDD17001BDFD8 /* LibraryAPI.m */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		A3224A72197CD82D001BDFD8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A3224A66197CBD19001BDFD8 /* Album.h */,
+				A3224A67197CBD19001BDFD8 /* Album.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A3224A73197CD83C001BDFD8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				450EECD717A9B03A00957F62 /* ViewController.h */,
+				450EECD817A9B03A00957F62 /* ViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		A3224A74197CD84D001BDFD8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A3224A69197CC01D001BDFD8 /* Storyboard.storyboard */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3224A77197CDD17001BDFD8 /* LibraryAPI.m in Sources */,
 				450EECCC17A9B03A00957F62 /* main.m in Sources */,
 				450EECD017A9B03A00957F62 /* AppDelegate.m in Sources */,
 				450EECD917A9B03A00957F62 /* ViewController.m in Sources */,
