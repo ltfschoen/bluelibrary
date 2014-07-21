@@ -22,7 +22,7 @@
     
     static dispatch_once_t oncePredicate;
     
-    // use Grand Centrla Dispatch (GCD) to execute block
+    // use Grand Central Dispatch (GCD) to execute block
     // initialise instance of LibraryAPI class. not called again
     
     dispatch_once(&oncePredicate, ^{
