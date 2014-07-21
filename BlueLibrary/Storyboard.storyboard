@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="fXs-a7-Uoq">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
     </dependencies>
     <scenes>
@@ -16,9 +15,26 @@
                     <view key="view" contentMode="scaleToFill" id="a2W-Q9-InS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1CP-Yk-vH5">
+                                <rect key="frame" x="0.0" y="106" width="320" height="300"/>
+                                <color key="backgroundColor" red="0.27450980390000002" green="0.64313725489999995" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="T2l-XO-dDg">
+                                <rect key="frame" x="150" y="246" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="T2l-XO-dDg" secondAttribute="centerX" id="STZ-Wf-p7N"/>
+                            <constraint firstAttribute="centerY" secondItem="T2l-XO-dDg" secondAttribute="centerY" constant="28" id="iZe-Kw-bni"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WSc-Ur-8lZ"/>
+                    <connections>
+                        <outlet property="coverImage" destination="1CP-Yk-vH5" id="Azv-10-qg8"/>
+                        <outlet property="indicator" destination="T2l-XO-dDg" id="PDu-Kh-aA4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lNi-X3-fvu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
