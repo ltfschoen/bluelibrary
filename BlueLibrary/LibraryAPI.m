@@ -184,4 +184,11 @@
     }    
 }
 
+# pragma mark - save album data to disk (call to LibraryAPI to save albums using PersistencyManager)
+
+- (void)saveAlbums
+{
+    [persistencyManager saveAlbums];
+}
+
 @end

@@ -22,5 +22,7 @@
 - (void)saveImage:(UIImage*)image filename:(NSString*)filename;
 - (UIImage*)getImage:(NSString*)filename;
 
+// save the album data list
+- (void)saveAlbums;
 
 @end

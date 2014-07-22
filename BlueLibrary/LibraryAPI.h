@@ -30,4 +30,12 @@
 - (void)addAlbum:(Album*)album atIndex:(int)index;
 - (void)deleteAlbumAtIndex:(int)index;
 
+//
+//  save the album data each time the app enters the background
+//  caters for saving in case album data is later changed
+//  main application accesses all services through LibraryAPI to inform PersistencyManager to save album data
+//
+
+- (void)saveAlbums;
+
 @end

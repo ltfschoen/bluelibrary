@@ -150,6 +150,10 @@
     //
     
     [[NSUserDefaults standardUserDefaults] setInteger:currentAlbumIndex forKey:@"currentAlbumIndex"];
+    
+    // use LibraryAPI to trigger a call to save album data to disk whenever the ViewController saves its state
+    
+    [[LibraryAPI sharedInstance] saveAlbums];
 }
 
 - (void)loadPreviousState
