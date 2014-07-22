@@ -76,7 +76,7 @@
     //      declare ViewController as delegate & data source of UITableView
     //
     
-    dataTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 120, self.view.frame.size.width, self.view.frame.size.height-120) style:UITableViewStyleGrouped]; 
+    dataTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 120, self.view.frame.size.width, self.view.frame.size.height-120) style:UITableViewStyleGrouped];
     dataTable.delegate = self;
     dataTable.dataSource = self;
     dataTable.backgroundView = nil;
