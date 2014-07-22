@@ -34,6 +34,8 @@
     UIScrollView *scroller;
 }
 
+# pragma mark - Initialize Scroll View in Horizontal Scroller
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -58,6 +60,8 @@
     }
     return self;
 }
+
+# pragma mark - Gesture Recognition - Detect Scroll View that was Tapped
 
 - (void)scrollerTapped:(UITapGestureRecognizer*)gesture
 {
@@ -92,14 +96,31 @@
     }
 }
 
+# pragma mark - Gesture Recognition - Detect User Finished Dragging inside Scroll View
+
 //
-//  reload method called when add HorizontalScroller to another view
+//  informs delegate when user finishes dragging to center the scroll view
+//  decelerate parameter is true if scroll view not completely stopped
 //
 
-- (void)didMoveToSuperview
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    [self reload];
+    if (!decelerate)
+    {
+        [self centerCurrentView];
+    }
 }
+
+//
+//  called by system when scroll action ends. center the current view
+//
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self centerCurrentView];
+}
+
+# pragma mark - Centre Album being Viewed inside Scroll View
 
 //
 //  check that album being viewed is always centered inside scroll view
@@ -115,6 +136,17 @@
     xFinal = viewIndex * (VIEW_DIMENSIONS+(2*VIEW_PADDING));
     [scroller setContentOffset:CGPointMake(xFinal,0) animated:YES];
     [self.delegate horizontalScroller:self clickedViewAtIndex:viewIndex];
+}
+
+# pragma mark - Reload Scroll View when Data Changes or Move to Another View
+
+//
+//  reload method called when add HorizontalScroller to another view
+//
+
+- (void)didMoveToSuperview
+{
+    [self reload];
 }
 
 //
@@ -163,8 +195,6 @@
     
     [scroller setContentSize:CGSizeMake(xValue+VIEWS_OFFSET, self.frame.size.height)];
     
-    // 6 - if an initial view is defined, center the scroller on it
-    
     //
     //  HorizontalScroller checks if its delegate responds to selector
     //  initialViewIndexForHorizontalScroller: (optional protocol method)
@@ -178,5 +208,6 @@
         [scroller setContentOffset:CGPointMake(initialView*(VIEW_DIMENSIONS+(2*VIEW_PADDING)), 0) animated:YES];
     }
 }
+
 
 @end

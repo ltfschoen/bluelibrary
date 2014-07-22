@@ -15,6 +15,11 @@
 
 @protocol HorizontalScrollerDelegate;
 
+//
+//  scroller developed to be independant and reusable.
+//  as it contains no mention of album or album view classes
+//
+
 @interface HorizontalScroller : UIView
 
     //
