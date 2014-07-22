@@ -12,12 +12,14 @@
 #import "LibraryAPI.h"                  // API (Facade Design Pattern)
 #import "Album+TableRepresentation.h"   // Category (Decorator Design Pattern)
 
+#import "HorizontalScroller.h"
+
 //
 //  delegate (ViewController) promises to fulfil the method contract in conformance to protocols
 //  shown to satisfy UITableView that required methods are implemented by its delegate
 //
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate> {
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate, HorizontalScrollerDelegate> {
     
     //
     //  private variables in class extension
@@ -27,6 +29,7 @@
     NSArray *allAlbums;
     NSDictionary *currentAlbumData;
     int currentAlbumIndex;
+    HorizontalScroller *scroller;
 }
 
 // private properties not required by other classes
@@ -122,6 +125,19 @@
     //
     
     [dataTable reloadData];
+}
+
+# pragma mark - HorizontalScrollerDelegate methods
+
+//
+//  set variable that stores current album.
+//  call showDataForAlbumAtIndex: method to display data for new album
+//
+
+- (void)horizontalScroller:(HorizontalScroller *)scroller clickedViewAtIndex:(int)index
+{
+    currentAlbumIndex = index;
+    [self showDataForAlbumAtIndex:index];
 }
 
 # pragma mark - Table View Delegate & Data Source (Conformance to Required Methods of Protocol)
