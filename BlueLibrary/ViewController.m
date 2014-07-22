@@ -72,7 +72,13 @@
     [self.view addSubview:dataTable];
     
     //
-    //  5 - create new instance of HorizontalScroller. set its background color and delegate.
+    //  5 - load previously saved state of the album that was shown using the momento pattern
+    //
+    
+    [self loadPreviousState];
+    
+    //
+    //  6 - create new instance of HorizontalScroller. set its background color and delegate.
     //      add scroller to main view. load subviews for scroller to display album data.
     //
     
@@ -84,12 +90,19 @@
     [self reloadScroller];
     
     //
-    //  6 - load current album at app launch
+    //  7 - load current album at app launch
     //
     //  note: we have predefined value of currentAlbumIndex to 0 already
     //
     
     [self showDataForAlbumAtIndex:currentAlbumIndex];
+    
+    //
+    //  8 - notification from the system when app enters the background is detected
+    //      and used to call our momento pattern method to saveCurrentState
+    //
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveCurrentState) name:UIApplicationDidEnterBackgroundNotification object:nil];
 }
 
 - (void)showDataForAlbumAtIndex:(int)albumIndex
@@ -125,6 +138,39 @@
     [dataTable reloadData];
 }
 
+# pragma mark - Momento Pattern to Save and Restore the State of the App
+
+- (void)saveCurrentState
+{
+    //
+    // when user leaves app and then returns again it will restore to exact same state it was left in
+    // we save the currently displayed album using NSUserDefaults (since its only a single piece of information)
+    // Note: NSDefaults is a standard data store provided by iOS for saving app specific settings and data
+    // Note: enter the background using the iOS Simulator with CMD+Shift+H
+    //
+    
+    [[NSUserDefaults standardUserDefaults] setInteger:currentAlbumIndex forKey:@"currentAlbumIndex"];
+}
+
+- (void)loadPreviousState
+{
+    //
+    //  loads previously saved index
+    //
+    
+    currentAlbumIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentAlbumIndex"];
+    [self showDataForAlbumAtIndex:currentAlbumIndex];
+}
+
+//
+//  remove the ViewController class from being an observer when the ViewController is deallocated
+//
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 # pragma mark - HorizontalScrollerDelegate methods (compliance with HorizontalScroller.h protocols)
 
 //
@@ -147,6 +193,15 @@
 {
     currentAlbumIndex = index;
     [self showDataForAlbumAtIndex:index];
+}
+
+//
+//  optional method - ensures scroller is centered on correctly resumed album when implemented in delegate (ViewController)
+//
+
+- (NSInteger)initialViewIndexForHorizontalScroller:(HorizontalScroller *)scroller
+{
+    return currentAlbumIndex;
 }
 
 # pragma mark - Load Album Data via LibraryAPI

@@ -74,9 +74,9 @@
 //  unregister the KVO observer when it has downloaded
 //
 
-//- (void)dealloc
-//{
-//    [coverImage removeObserver:self forKeyPath:@"image"];
-//}
+- (void)dealloc
+{
+    [coverImage removeObserver:self forKeyPath:@"image"];
+}
 
 @end
