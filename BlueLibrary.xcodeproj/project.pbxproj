@@ -104,7 +104,6 @@
 		450EECC517A9B03A00957F62 /* BlueLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				A3224A85197DE368001BDFD8 /* Protocols */,
 				A3224A81197DD15E001BDFD8 /* Categories */,
 				A3224A74197CD84D001BDFD8 /* View */,
 				A3224A73197CD83C001BDFD8 /* Controller */,
@@ -165,6 +164,9 @@
 		A3224A74197CD84D001BDFD8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A3224A85197DE368001BDFD8 /* Protocols */,
+				A3224A82197DE312001BDFD8 /* HorizontalScroller.h */,
+				A3224A83197DE312001BDFD8 /* HorizontalScroller.m */,
 				A3224A89197E61F6001BDFD8 /* Templates */,
 				A3224A69197CC01D001BDFD8 /* Storyboard.storyboard */,
 			);
@@ -183,8 +185,6 @@
 		A3224A85197DE368001BDFD8 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				A3224A82197DE312001BDFD8 /* HorizontalScroller.h */,
-				A3224A83197DE312001BDFD8 /* HorizontalScroller.m */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
