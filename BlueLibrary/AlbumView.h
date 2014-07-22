@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+// view logic 
+
 @interface AlbumView : UIView
 
 - (id)initWithFrame:(CGRect)frame albumCover:(NSString*)albumCover;

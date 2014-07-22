@@ -36,6 +36,17 @@
         indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
         [indicator startAnimating];
         [self addSubview:indicator];
+        
+        //
+        //  perform album cover image download task
+        //  notification sent through NSNotificationCenter singleton
+        //  contains UIImageView to populate URL and cover image to be downloaded
+        //
+        
+        [[NSNotificationCenter defaultCenter]
+            postNotificationName:@"BLDownloadImageNotification"
+            object:self
+            userInfo:@{@"imageView":coverImage, @"coverUrl":albumCover}];
     }
     return self;
 }

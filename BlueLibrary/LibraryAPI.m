@@ -37,8 +37,27 @@
         persistencyManager = [[PersistencyManager alloc] init];
         httpClient = [[HTTPClient alloc] init];
         isOnline = NO;  // sample app not dealing with real server. fixed value of 'NO'
+        
+        //
+        //  observer of notifications (i.e. from AlbumView).
+        //  - LibraryAPI is registered as an observer for 'BLDownloadImageNotification'
+        //  - AlbumView class posts BLDownloadImageNotification notifications
+        //  the system notifies LibraryAPI of each notification posted
+        //  and in response LibraryAPI executes 'downloadImage:' method
+        //
+        //  'dealloc' method unsubscribes the observing class from notifications it registered
+        //  for to prevent crashes that would otherwise be caused by notifications being send
+        //  to an deallocated instance
+        //
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadImage:) name:@"BLDownloadImageNotification" object:nil];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 + (LibraryAPI*)sharedInstance

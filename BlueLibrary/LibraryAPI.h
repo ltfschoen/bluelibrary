@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Album.h"   // import Data Model (MVC) for album access
 
+// communication logic accessing all services
+
 @interface LibraryAPI : NSObject
 
 //
