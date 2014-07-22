@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 //
-//  refer to new delegate in class definition. protocol is now visible at this point
+//  refer to new delegate in class definition. protocol is not visible at this point
 //  use forward declaration of the protocol so Xcode and compiler know it will be available
 //
 
