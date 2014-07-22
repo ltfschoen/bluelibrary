@@ -11,8 +11,16 @@
 
 @interface PersistencyManager : NSObject
 
+// album data CRUD
+
 - (NSArray*)getAlbums;
 - (void)addAlbum:(Album*)album atIndex:(int)index;
 - (void)deleteAlbumAtIndex:(int)index;
+
+// album covers CRUD (save album cover images locally)
+
+- (void)saveImage:(UIImage*)image filename:(NSString*)filename;
+- (UIImage*)getImage:(NSString*)filename;
+
 
 @end

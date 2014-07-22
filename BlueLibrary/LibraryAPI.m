@@ -55,10 +55,14 @@
     return self;
 }
 
+#pragma mark - remove observer from notifications
+
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+#pragma mark - singleton API
 
 + (LibraryAPI*)sharedInstance
 {
@@ -132,6 +136,52 @@
     {
         [httpClient postRequest:@"/api/deleteAlbum" body:[@(index) description]];
     }
+}
+
+#pragma mark - album cover download
+
+//
+//  notifications cause method execution
+//  notification object received by method as a parameter
+//
+
+- (void)downloadImage:(NSNotification*)notification
+{
+    //
+    //  UIImageView and album cover image URL retrieved from the notification
+    //
+    
+    UIImageView *imageView = notification.userInfo[@"imageView"];
+    NSString *coverUrl = notification.userInfo[@"coverUrl"];
+    
+    //
+    //  image is retrieved locally (if previously downloaded) from the PersistencyManager
+    //
+    
+    imageView.image = [persistencyManager getImage:[coverUrl lastPathComponent]];
+    
+    //
+    //  image retrieved from external URL (if not previously downloaded) using HTTPClient
+    //
+    
+    if (imageView.image == nil)
+    {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+            UIImage *image = [httpClient downloadImage:coverUrl];
+            
+            //
+            //  download completion triggers
+            //  - image display in image view
+            //  - saved locally using PersistencyManager
+            //
+            
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                imageView.image = image;
+                [persistencyManager saveImage:image filename:[coverUrl lastPathComponent]];
+            });
+        });
+    }    
 }
 
 @end
